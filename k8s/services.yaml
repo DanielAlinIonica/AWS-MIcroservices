@@ -12,9 +12,13 @@ spec:
   ports:
     - name: http
       port: 80
-      nodePort: 30080
+  type: LoadBalancer
 
-  type: NodePort
+
+    #  only for dev environment
+    #  nodePort: 30080
+
+ # type: NodePort
 
 
 ---
@@ -33,7 +37,7 @@ spec:
   ports:
     - name: http
       port: 8161
-      nodePort: 30010
+  #    nodePort: 30010
 
     - name: endpoint
       port: 61616
@@ -41,7 +45,8 @@ spec:
       # just specify here a 
       # nodePort 30022  for example
 
-  type: NodePort
+ # type: NodePort
+  type: ClusterIP
 
 ---
 apiVersion: v1
